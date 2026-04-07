@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+/* Logo : Adlery Pro Blockletter (Zetafonts) — déposez le .woff2 licencié sous public/fonts/adlery-blockletter.woff2 */
+@font-face {
+  font-family: "Adlery Blockletter";
+  src: url("/fonts/adlery-blockletter.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ── Couleur principale : Emerald #28BC85 + déclinaisons ── */
+  --color-primary: #28BC85;
+  --color-primary-hover: #1FA06F;
+  --color-primary-light: #EBFDF5;
+  --color-primary-dark: #064E3B;
+
+  /* ── Accent chaud : Peach #FFF3E5 + déclinaisons ── */
+  --color-accent: #FFF3E5;
+  --color-accent-medium: #FFE0B2;
+  --color-accent-dark: #F59E0B;
+
+  /* ── Dark brand (emerald 900) ── */
+  --color-dark-brand: #064E3B;
+  --color-dark-brand-light: #065F46;
+
+  --color-white: #FFFFFF;
+  --color-success: #28BC85;
+  --color-success-light: #D1FAE5;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FEF3C7;
+  --color-danger: #EF4444;
+  --color-danger-light: #FEE2E2;
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+  --color-text: #111827;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-border: #E5E7EB;
+  --color-background: #FFFFFF;
+  /* Bande landing « pêche » (transition douce sous le hero) */
+  --color-section-warm: #FFF3E8;
+  --color-surface: #F9FAFB;
+  --font-sans: var(--font-montserrat);
+  --font-mono: var(--font-geist-mono);
+  /* Secours = même sans-serif que le site (évite Brush Script / cursive « sales » si .woff2 absent) */
+  --font-logo: "Adlery Blockletter", var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+  --shadow-glow: 0 0 40px rgb(40 188 133 / 0.15);
+  /* Courbe fluide (ease-out doux) */
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Même teinte que blanc + hero-bg-soft (0.55) : évite la double bande hero / marquee */
+  --landing-hero-mint-merge: #f4fefa;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-accent: var(--color-accent);
+  --color-accent-medium: var(--color-accent-medium);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-dark-brand: var(--color-dark-brand);
+  --color-dark-brand-light: var(--color-dark-brand-light);
+  --color-success: var(--color-success);
+  --color-success-light: var(--color-success-light);
+  --color-warning: var(--color-warning);
+  --color-warning-light: var(--color-warning-light);
+  --color-danger: var(--color-danger);
+  --color-danger-light: var(--color-danger-light);
+  --color-surface: var(--color-surface);
+  --color-section-warm: var(--color-section-warm);
+  --color-border: var(--color-border);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-logo: var(--font-logo);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-full: var(--radius-full);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+/* ── Surfaces unies (sans dégradé) ── */
+.surface-hero-dark {
+  background: var(--color-dark-brand);
+}
+.surface-card-soft {
+  background: var(--color-primary-light);
+}
+.hero-bg-soft {
+  background-color: rgba(235, 253, 245, 0.55);
+}
+
+/**
+ * Hero + marquee : **un seul** fond en dégradé (pas deux blocs qui se touchent).
+ * % = hauteur hero+marquee uniquement → le bas du hero + haut marquee = zone blanche.
+ */
+.landing-hero-marquee-continuum {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffffff 12%,
+    var(--landing-hero-mint-merge) 28%,
+    #e8f9f1 38%,
+    #f2fcf7 52%,
+    #fafefd 64%,
+    #ffffff 78%,
+    #ffffff 100%
+  );
+}
+
+.trust-badge {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* ── Animations fluides (sans shimmer / sans dégradé animé) ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+@keyframes scale-bounce {
+  from { transform: scale(0.97); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-float { animation: float 7s var(--ease-fluid) infinite; }
+.animate-float-slow { animation: float-slow 9s var(--ease-fluid) infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.75s var(--ease-fluid) both; }
+.animate-slide-in-right { animation: slide-in-right 0.75s var(--ease-fluid) both; }
+.animate-pulse-soft { animation: pulse-soft 3.5s var(--ease-fluid) infinite; }
+.animate-scale-bounce { animation: scale-bounce 0.55s var(--ease-fluid) both; }
+.animate-marquee { animation: marquee 32s linear infinite; }
+.animate-spin-slow { animation: spin-slow 24s linear infinite; }
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* ── Glass morphism (fond uni + flou, pas de dégradé) ── */
+.glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.glass-dark {
+  background: rgba(6, 78, 59, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Card hover : mouvement fluide ── */
+.card-hover-lift {
+  transition: transform 0.45s var(--ease-fluid), box-shadow 0.45s var(--ease-fluid);
+}
+.card-hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px -14px rgb(40 188 133 / 0.12), 0 8px 16px -8px rgb(0 0 0 / 0.05);
+}
+
+.card-ring-accent {
+  background: white;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 0 0 1px rgba(40, 188, 133, 0.08);
+}
+
+/* ── Parallax overlapping sections ── */
+.parallax-section {
+  position: relative;
+  will-change: transform;
+}
+.parallax-section + .parallax-section {
+  margin-top: -2rem;
+}
+
+.section-reveal {
+  position: relative;
+  z-index: 1;
+}
+.section-reveal + .section-reveal {
+  margin-top: -3rem;
+  z-index: 2;
+}
+
+.glow-ring {
+  box-shadow:
+    0 0 0 3px rgba(40, 188, 133, 0.12),
+    0 0 0 6px rgba(40, 188, 133, 0.06);
+}
+
+/* ── Cartes services : couleurs unies ── */
+.sub-card-netflix { background: #E50914; }
+.sub-card-spotify { background: #1DB954; }
+.sub-card-apple-music { background: #fc3c44; }
+.sub-card-iptv { background: #4338ca; }
+.sub-card-canva { background: #00C4CC; }
+.sub-card-canal { background: #1a1a2e; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(40, 188, 133, 0.2);
+  color: #064E3B;
+}
