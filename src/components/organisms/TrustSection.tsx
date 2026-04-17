@@ -41,7 +41,7 @@ function TrustBadge({ icon: Icon, title, desc }: { icon: IconType; title: string
 
 export default function TrustSection() {
   return (
-    <section className="relative z-10 -mt-6 overflow-hidden rounded-t-[2rem] bg-white py-16 pt-12 md:rounded-t-[2.5rem] md:py-28 md:pt-14">
+    <section className="relative z-10 -mt-6 overflow-hidden rounded-t-4xl bg-white py-16 pt-12 md:rounded-t-[2.5rem] md:py-28 md:pt-14">
       {/* Background decoration */}
       <div className="pointer-events-none absolute top-20 right-10 h-80 w-80 rounded-full bg-primary-light/40 blur-3xl" />
       <div className="pointer-events-none absolute bottom-10 left-10 h-64 w-64 rounded-full bg-accent/30 blur-3xl" />

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 function ValueProp({ icon: Icon, title, desc }: { icon: IconType; title: string; desc: string }) {
   return (
     <motion.div
-      className="group relative flex items-start gap-4 rounded-2xl bg-white/90 p-5 ring-1 ring-black/5 transition-shadow duration-300 ease-out backdrop-blur-sm"
+      className="group relative flex items-start gap-3 rounded-2xl bg-white/90 p-4 ring-1 ring-black/5 transition-shadow duration-300 ease-out backdrop-blur-sm sm:gap-4 sm:p-5"
       whileHover={{ y: -3, boxShadow: "0 16px 32px -8px rgb(40 188 133 / 0.1)" }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -54,10 +54,10 @@ const STEPS = [
 
 export default function FeaturesSection() {
   return (
-    <section className="relative overflow-hidden bg-transparent py-16 pb-20 md:py-24 md:pb-28">
+    <section className="relative overflow-hidden bg-transparent py-12 pb-16 sm:py-16 sm:pb-20 md:py-24 md:pb-28">
       <div className="pointer-events-none absolute top-0 right-0 h-72 w-72 rounded-full bg-white/50 blur-3xl" />
 
-      <div className="relative mx-auto max-w-6xl px-5">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-5">
         <ScrollReveal variant="blur-up">
           <div className="text-center">
             <span className="mb-4 inline-block rounded-full bg-primary-light px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
@@ -66,13 +66,13 @@ export default function FeaturesSection() {
             <h2 className="text-2xl font-extrabold leading-snug tracking-tight text-text sm:text-3xl md:text-4xl">
               Comment ça marche ?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-text-secondary">
+            <p className="mx-auto mt-4 max-w-xl text-base text-text-secondary sm:text-lg">
               Que vous rejoigniez un groupe ou que vous ouvriez le vôtre : tout se passe en toute sécurité.
             </p>
           </div>
         </ScrollReveal>
 
-        <StaggerContainer className="mt-14 flex flex-col gap-14 md:mt-20 md:gap-20" stagger={0.1}>
+        <StaggerContainer className="mt-10 flex flex-col gap-10 sm:mt-14 sm:gap-14 md:mt-20 md:gap-20" stagger={0.1}>
           {STEPS.map((step) => (
             <StaggerItem key={step.num}>
               <div
@@ -106,7 +106,7 @@ export default function FeaturesSection() {
           ))}
         </StaggerContainer>
 
-        <StaggerContainer className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
+        <StaggerContainer className="mt-12 grid gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4" stagger={0.06}>
           {[
             { icon: FiLock, title: "Escrow sécurisé", desc: "Fonds bloqués tant que l'accès n'est pas confirmé" },
             { icon: FiFileText, title: "Factures vérifiées", desc: "Les hôtes qui proposent un abonnement sont vérifiés par notre système" },

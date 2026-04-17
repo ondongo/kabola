@@ -37,7 +37,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-transparent pt-28 pb-20 md:pt-36 md:pb-32"
+      className="relative overflow-hidden bg-transparent pt-24 pb-14 sm:pt-28 sm:pb-20 md:pt-36 md:pb-32"
     >
       <FloatingShape
         className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-primary/8 blur-3xl"
@@ -53,7 +53,7 @@ export default function HeroSection() {
         delay={4}
       />
 
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] animate-spin-slow opacity-[0.03]">
+      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[min(100vw,42rem)] w-[min(100vw,42rem)] -translate-x-1/2 -translate-y-1/2 animate-spin-slow opacity-[0.03] sm:h-[800px] sm:w-[800px]">
         <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary" />
         <div className="absolute inset-12 rounded-full border border-dashed border-primary/50" />
       </div>
@@ -103,10 +103,10 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <motion.div className="relative z-10 mx-auto max-w-6xl px-5" style={{ y: textY, opacity }}>
+      <motion.div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5" style={{ y: textY, opacity }}>
         <div className="text-center">
           <motion.div
-            className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-primary/20 bg-primary-light px-5 py-2"
+            className="mb-6 inline-flex max-w-[min(100%,20rem)] flex-wrap items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary-light px-3 py-1.5 sm:mb-8 sm:max-w-none sm:gap-2.5 sm:px-5 sm:py-2"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.55, ease: easeFluid }}
@@ -115,13 +115,15 @@ export default function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            <span className="text-sm font-medium text-primary">
-              +2 000 membres — Sénégal, Congo, Gabon
+            <span className="text-center text-xs font-medium text-primary sm:text-sm">
+              <span className="block sm:inline">+2 000 membres</span>
+              <span className="hidden sm:inline"> — </span>
+              <span className="block sm:inline">Sénégal, Congo, Gabon</span>
             </span>
           </motion.div>
 
           <motion.h1
-            className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.1] tracking-tight text-gray-900 md:text-7xl"
+            className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.12] tracking-tight text-gray-900 sm:text-5xl md:text-7xl"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.1, ease: easeFluid }}
@@ -140,31 +142,25 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="mx-auto mt-6 flex max-w-2xl flex-col gap-1.5 text-center text-lg leading-snug text-text-secondary md:gap-2 md:text-xl"
+            className="mx-auto mt-5 max-w-2xl text-center text-base leading-snug text-text-secondary sm:mt-6 sm:text-lg md:text-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.24, ease: easeFluid }}
           >
             <span>
-              Jusqu&apos;à <strong className="text-text">70 %</strong> moins cher en rejoignant un groupe.
-            </span>
-            <span>
-              <strong className="text-text">Proposez votre abo</strong> pour rentabiliser vos places libres.
-            </span>
-            <span className="text-base text-text-muted md:text-lg">
-              Rejoignez un groupe ou publiez le vôtre — mobile money, escrow.
+            Ne payez plus vos abonnements au prix fort. Jusqu&apos;à <strong className="text-text">70&nbsp;% </strong> moins cher. Économisez ou rentabilisez dès aujourd&apos;hui.
             </span>
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+            className="mt-8 flex w-full max-w-md flex-col items-stretch gap-3 sm:mx-auto sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:justify-center sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.36, ease: easeFluid }}
           >
             <Link
               href={ROUTES.SIGNUP}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg shadow-primary/25 transition-[transform,box-shadow,background-color] duration-300 ease-out hover:shadow-xl hover:bg-primary-hover hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl sm:px-8 sm:py-4 sm:text-base"
             >
               <span className="flex items-center gap-2.5">
                 Commencer gratuitement
@@ -173,44 +169,44 @@ export default function HeroSection() {
             </Link>
             <Link
               href={ROUTES.EXPLORE}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-gray-200 px-7 py-3.5 text-base font-semibold text-text transition-all hover:border-primary hover:text-primary hover:bg-primary-light/50"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 px-6 py-3 text-sm font-semibold text-text transition-all hover:border-primary hover:bg-primary-light/50 hover:text-primary sm:px-7 sm:py-3.5 sm:text-base"
             >
               Voir les abonnements
             </Link>
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-16 flex max-w-lg items-center justify-center divide-x divide-gray-200"
+            className="mx-auto mt-12 grid max-w-lg grid-cols-1 gap-6 border-y border-gray-100 py-6 sm:mt-16 sm:grid-cols-3 sm:gap-0 sm:border-y-0 sm:py-0 sm:divide-x sm:divide-gray-200"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5, ease: easeFluid }}
           >
-            <div className="px-6 text-center md:px-10">
+            <div className="px-2 text-center sm:px-6 md:px-10">
               <AnimatedCounter
                 target={70}
                 suffix="%"
                 duration={0.65}
-                className="text-3xl font-extrabold text-gray-900 md:text-4xl"
+                className="text-2xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl"
               />
-              <p className="mt-1 text-sm text-text-muted">d&apos;économies</p>
+              <p className="mt-1 text-xs text-text-muted sm:text-sm">d&apos;économies</p>
             </div>
-            <div className="px-6 text-center md:px-10">
+            <div className="px-2 text-center sm:px-6 md:px-10">
               <AnimatedCounter
                 target={2}
                 suffix="k+"
                 duration={0.65}
-                className="text-3xl font-extrabold text-gray-900 md:text-4xl"
+                className="text-2xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl"
               />
-              <p className="mt-1 text-sm text-text-muted">membres actifs</p>
+              <p className="mt-1 text-xs text-text-muted sm:text-sm">membres actifs</p>
             </div>
-            <div className="px-6 text-center md:px-10">
+            <div className="hidden px-2 text-center sm:block sm:px-6 md:px-10">
               <AnimatedCounter
                 target={4.8}
                 decimals={1}
                 duration={0.65}
-                className="text-3xl font-extrabold text-gray-900 md:text-4xl"
+                className="text-2xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl"
               />
-              <p className="mt-1 text-sm text-text-muted">note de confiance</p>
+              <p className="mt-1 text-xs text-text-muted sm:text-sm">note de confiance</p>
             </div>
           </motion.div>
         </div>

@@ -60,10 +60,10 @@ function ProblemCard({
 
 export default function ProblemSection() {
   return (
-    <section className="relative overflow-hidden bg-transparent py-16 md:py-24">
+    <section className="relative overflow-hidden bg-transparent py-12 sm:py-16 md:py-24">
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[480px] w-[480px] rounded-full bg-white/40 blur-3xl" />
 
-      <div className="relative mx-auto max-w-6xl px-5">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-5">
         <StaggerContainer className="grid gap-6 md:grid-cols-3 md:items-stretch" stagger={0.12}>
           {[
             {
@@ -80,7 +80,7 @@ export default function ProblemSection() {
               headerTone: "beige" as const,
               stat: "72%",
               desc: "Beaucoup paient un maxi-forfait pour une utilisation moyenne.",
-              sub: "Rejoignez un groupe pour payer à votre usage — ou remplissez les places vides du vôtre pour le rentabiliser.",
+              sub: "Payez moins, partagez les places inutilisées.",
             },
             {
               id: "trust",

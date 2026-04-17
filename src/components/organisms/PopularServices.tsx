@@ -54,17 +54,17 @@ function MemberAvatarStack({ cardIndex }: { cardIndex: number }) {
 
 export default function PopularServices() {
   return (
-    <section className="relative z-20 -mt-8 overflow-hidden rounded-t-[2rem] bg-gray-900 pt-12 pb-20 md:rounded-t-[2.5rem] md:pt-14 md:pb-28">
+    <section className="relative z-20 -mt-6 overflow-hidden rounded-t-3xl bg-gray-900 pt-10 pb-16 sm:-mt-8 sm:rounded-t-4xl sm:pt-12 sm:pb-20 md:rounded-t-[2.5rem] md:pt-14 md:pb-28">
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-8">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-5 xl:max-w-7xl">
         <ScrollReveal variant="blur-up">
           <div className="md:flex md:items-end md:justify-between">
             <div>
               <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
                 Catalogue
               </span>
-              <h2 className="text-2xl font-extrabold leading-snug tracking-tight text-white sm:text-3xl md:max-w-2xl md:text-4xl">
-                Plus de 50 services<br />à rejoindre ou à proposer
+              <h2 className="max-w-[min(100%,22rem)] text-balance text-2xl font-extrabold leading-snug tracking-tight text-white sm:max-w-none sm:text-3xl md:max-w-2xl md:text-4xl">
+                Plus de 50 services à rejoindre ou à proposer
               </h2>
             </div>
             <Link
@@ -80,14 +80,14 @@ export default function PopularServices() {
         </ScrollReveal>
 
         <StaggerContainer
-          className="mt-14 grid grid-cols-2 items-stretch gap-5 sm:grid-cols-3 sm:gap-6 md:mt-20 md:gap-7 xl:grid-cols-6 xl:gap-6"
+          className="mt-10 grid grid-cols-2 items-stretch gap-3 sm:mt-14 sm:gap-5 sm:grid-cols-3 md:mt-20 md:gap-7 xl:grid-cols-6 xl:gap-6"
           stagger={0.06}
         >
           {SERVICES.map((s, index) => (
             <StaggerItem key={s.name} className="h-full min-h-0">
               <Link href={ROUTES.EXPLORE} className="block h-full">
                 <motion.div
-                  className={`${s.gradient} group flex h-full min-h-[18.5rem] flex-col items-center rounded-2xl px-5 py-7 text-white sm:min-h-[17.5rem] md:px-6 md:py-8`}
+                  className={`${s.gradient} group flex h-full min-h-70 flex-col items-center rounded-2xl px-3 py-5 text-white sm:min-h-68 sm:px-5 sm:py-7 md:min-h-72 md:px-6 md:py-8`}
                   whileHover={{ y: -4, scale: 1.02, boxShadow: "0 20px 40px -12px rgb(0 0 0 / 0.35)" }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
@@ -98,14 +98,14 @@ export default function PopularServices() {
                       <ServiceIconInline name={s.name} size={28} />
                     </div>
 
-                    <p className="mt-3 min-h-[2.75rem] max-w-[12rem] text-center text-sm font-bold leading-snug line-clamp-2 md:text-[0.95rem]">
+                    <p className="mt-2 min-h-10 max-w-44 text-center text-xs font-bold leading-snug line-clamp-2 sm:mt-3 sm:min-h-11 sm:max-w-48 sm:text-sm md:text-[0.95rem]">
                       {s.name}
                     </p>
 
                     <div className="mt-auto flex w-full flex-col items-center pt-5">
                       <p className="text-sm font-bold md:text-base">{s.price} FCFA</p>
                       <p className="mt-0.5 text-xs opacity-70">/mois</p>
-                      <span className="mt-5 inline-block rounded-full bg-white/20 px-5 py-2 text-xs font-semibold backdrop-blur-sm transition-all group-hover:bg-white/30 group-hover:scale-105 md:text-sm">
+                      <span className="mt-4 inline-block rounded-full bg-white/20 px-3 py-1.5 text-[0.65rem] font-semibold backdrop-blur-sm transition-all group-hover:scale-105 group-hover:bg-white/30 sm:mt-5 sm:px-5 sm:py-2 sm:text-xs md:text-sm">
                         Rejoindre
                       </span>
                     </div>

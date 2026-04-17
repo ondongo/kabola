@@ -5,6 +5,8 @@ type LogoProps = {
   size?: "sm" | "md" | "lg" | "xl";
   href?: string;
   className?: string;
+  /** Above-the-fold / LCP : charge le logo en priorité */
+  priority?: boolean;
 };
 
 /** Hauteur d’affichage (largeur dérivée du ratio intrinsèque 1536×1024). */
@@ -17,7 +19,7 @@ const HEIGHT_CLASS = {
 
 const INTRINSIC = { width: 100, height: 50 } as const;
 
-export default function Logo({ size = "md", href = "/", className = "" }: LogoProps) {
+export default function Logo({ size = "md", href = "/", className = "", priority = false }: LogoProps) {
   const logo = (
     <div className={`${HEIGHT_CLASS[size]} w-auto object-contain object-left select-none ${className}`}>
       <Image
@@ -26,6 +28,7 @@ export default function Logo({ size = "md", href = "/", className = "" }: LogoPr
         width={INTRINSIC.width}
         height={INTRINSIC.height}
         className="w-full h-full"
+        priority={priority}
       />
     </div>
   );

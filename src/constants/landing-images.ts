@@ -17,7 +17,7 @@ export const LANDING_IMAGES = {
    * Source : Pexels — usage conforme à leur licence.
    */
   popularServiceAvatars: [
-    "https://images.pexels.com/photos/3866555/pexels-photo-3866555.jpeg",
+    "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg",
     "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
     "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
     "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg",

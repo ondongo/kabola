@@ -266,10 +266,6 @@ body {
 .sub-card-canva { background: #00C4CC; }
 .sub-card-canal { background: #1a1a2e; }
 
-html {
-  scroll-behavior: smooth;
-}
-
 ::selection {
   background: rgba(40, 188, 133, 0.2);
   color: #064E3B;

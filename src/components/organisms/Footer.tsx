@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 rounded-full bg-primary-light blur-3xl opacity-50" />
       <div className="pointer-events-none absolute top-0 right-0 h-48 w-48 rounded-full bg-accent blur-3xl opacity-40" />
 
-      <div className="relative mx-auto max-w-6xl px-5 py-16">
+      <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <Logo size="lg" />
