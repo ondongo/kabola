@@ -105,19 +105,19 @@ export default function HeroSection() {
       <motion.div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5" style={{ y: textY, opacity }}>
         <div className="text-center">
           <motion.div
-            className="mb-6 inline-flex max-w-[min(100%,20rem)] flex-wrap items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary-light px-3 py-1.5 sm:mb-8 sm:max-w-none sm:gap-2.5 sm:px-5 sm:py-2"
+            className="mb-6 inline-flex max-w-full flex-nowrap items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary-light px-3 py-1.5 sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.55, ease: easeFluid }}
           >
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            <span className="text-center text-xs font-medium text-primary sm:text-sm">
-              <span className="block sm:inline">+2 000 membres</span>
-              <span className="hidden sm:inline"> — </span>
-              <span className="block sm:inline">Sénégal, Congo, Gabon</span>
+            <span className="whitespace-nowrap text-[11px] font-medium text-primary sm:text-sm">
+              <span>+2&nbsp;000 membres</span>{" "}
+              <span className="sm:hidden">SN · CG · GA</span>
+              <span className="hidden sm:inline">Sénégal, Congo, Gabon</span>
             </span>
           </motion.div>
 
@@ -127,7 +127,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.1, ease: easeFluid }}
           >
-            Partageons le prix de{" "}
+            Partageons
+            <br className="sm:hidden" aria-hidden />
+            <span className="hidden sm:inline">{" "}</span>
             <span className="relative inline-block">
               <span className="relative z-10 text-primary">nos abonnements</span>
               <motion.span
@@ -146,9 +148,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.24, ease: easeFluid }}
           >
-            <span>
-            Ne payez plus vos abonnements au prix fort. Jusqu&apos;à <strong className="text-text">70&nbsp;% </strong> moins cher. Économisez ou rentabilisez dès aujourd&apos;hui.
-            </span>
+            Ne payez plus vos abonnements au prix fort. Jusqu&apos;à{" "}
+            <strong className="text-text">70&nbsp;% </strong>
+            moins cher. Économisez ou rentabilisez dès aujourd&apos;hui.
           </motion.p>
 
           <motion.div
@@ -175,37 +177,37 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.div
-            className="mx-auto mt-12 grid max-w-lg grid-cols-1 gap-6 border-y border-gray-100 py-6 sm:mt-16 sm:grid-cols-3 sm:gap-0 sm:border-y-0 sm:py-0 sm:divide-x sm:divide-gray-200"
+            className="mx-auto mt-12 flex max-w-lg flex-row flex-wrap items-baseline justify-center gap-x-8 gap-y-3 sm:mt-16 sm:grid sm:max-w-none sm:grid-cols-3 sm:flex-nowrap sm:gap-0 sm:divide-x sm:divide-gray-200"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5, ease: easeFluid }}
           >
-            <div className="px-2 text-center sm:px-6 md:px-10">
+            <div className="flex min-w-0 flex-1 items-baseline justify-center gap-2 sm:max-w-none sm:flex-initial sm:flex-col sm:items-center sm:gap-0 sm:px-6 sm:text-center md:px-10">
               <AnimatedCounter
                 target={70}
                 suffix="%"
                 duration={0.65}
                 className="text-2xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl"
               />
-              <p className="mt-1 text-xs text-text-muted sm:text-sm">d&apos;économies</p>
+              <p className="text-xs text-text-muted sm:mt-1 sm:text-sm">d&apos;économies</p>
             </div>
-            <div className="px-2 text-center sm:px-6 md:px-10">
+            <div className="flex min-w-0 flex-1 items-baseline justify-center gap-2 sm:max-w-none sm:flex-initial sm:flex-col sm:items-center sm:gap-0 sm:px-6 sm:text-center md:px-10">
               <AnimatedCounter
                 target={2}
                 suffix="k+"
                 duration={0.65}
                 className="text-2xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl"
               />
-              <p className="mt-1 text-xs text-text-muted sm:text-sm">membres actifs</p>
+              <p className="text-xs text-text-muted sm:mt-1 sm:text-sm">membres actifs</p>
             </div>
-            <div className="hidden px-2 text-center sm:block sm:px-6 md:px-10">
+            <div className="hidden items-baseline justify-center gap-2 px-2 sm:flex sm:flex-col sm:items-center sm:gap-0 sm:px-6 sm:text-center md:px-10">
               <AnimatedCounter
                 target={4.8}
                 decimals={1}
                 duration={0.65}
                 className="text-2xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl"
               />
-              <p className="mt-1 text-xs text-text-muted sm:text-sm">note de confiance</p>
+              <p className="text-xs text-text-muted sm:mt-1 sm:text-sm">note de confiance</p>
             </div>
           </motion.div>
         </div>

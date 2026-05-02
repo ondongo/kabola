@@ -3,6 +3,7 @@
 import type { IconType } from "react-icons";
 import { Icons } from "@/constants/icons.constants";
 import { StaggerContainer, StaggerItem } from "@/components/atoms/ScrollReveal";
+import { cn } from "@/utils/cn";
 import { motion } from "framer-motion";
 
 const headerMint =
@@ -61,47 +62,62 @@ function ProblemCard({
 export default function ProblemSection() {
   return (
     <section className="relative overflow-hidden bg-transparent py-12 sm:py-16 md:py-24">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[480px] w-[480px] rounded-full bg-white/40 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 z-0 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/40 blur-3xl" />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-5">
-        <StaggerContainer className="grid gap-6 md:grid-cols-3 md:items-stretch" stagger={0.12}>
-          {[
-            {
-              id: "spend",
-              icon: Icons.trendingDown,
-              headerTone: "mint" as const,
-              stat: "28 000 FCFA",
-              desc: "Budget moyen mensuel pour vos abos au Sénégal, Congo et Gabon.",
-              sub: "Même services, moins cher : c’est le cœur de l’offre Kabola.",
-            },
-            {
-              id: "unused",
-              icon: Icons.alertCircle,
-              headerTone: "beige" as const,
-              stat: "72%",
-              desc: "Beaucoup paient un maxi-forfait pour une utilisation moyenne.",
-              sub: "Payez moins, partagez les places inutilisées.",
-            },
-            {
-              id: "trust",
-              icon: Icons.dollarSign,
-              headerTone: "mint" as const,
-              stat: "0 solution",
-              desc: "Le partage entre inconnus, sans filet : trop risqué pour durer.",
-              sub: "Kabola sécurise l’argent, les profils et les paiements locaux.",
-            },
-          ].map((card) => (
-            <StaggerItem key={card.id} className="h-full">
-              <ProblemCard
-                icon={card.icon}
-                headerTone={card.headerTone}
-                stat={card.stat}
-                desc={card.desc}
-                sub={card.sub}
-              />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
+        {/* Mobile : pleine largeur viewport (calcs 100vw = largeur du scrollport) */}
+        <div className="max-md:relative max-md:left-1/2 max-md:w-screen max-md:-translate-x-1/2 md:static md:left-auto md:w-auto md:translate-x-0">
+          <StaggerContainer
+            className="flex snap-x snap-proximity flex-row gap-3 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-px-4 px-4 pb-1 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] md:grid md:grid-cols-3 md:items-stretch md:gap-6 md:snap-none md:overflow-visible md:px-0 md:pb-0 md:scroll-p-0 md:[scrollbar-width:auto] [&::-webkit-scrollbar]:hidden md:[&::-webkit-scrollbar]:auto"
+            stagger={0.12}
+          >
+            {[
+              {
+                id: "spend",
+                icon: Icons.trendingDown,
+                headerTone: "mint" as const,
+                stat: "28 000 FCFA",
+                desc: "Budget moyen mensuel pour vos abos au Sénégal, Congo et Gabon.",
+                sub: "Même services, moins cher : c’est le cœur de l’offre Kabola.",
+              },
+              {
+                id: "unused",
+                icon: Icons.alertCircle,
+                headerTone: "beige" as const,
+                stat: "72%",
+                desc: "Beaucoup paient un maxi-forfait pour une utilisation moyenne.",
+                sub: "Payez moins, partagez les places inutilisées.",
+              },
+              {
+                id: "trust",
+                icon: Icons.dollarSign,
+                headerTone: "mint" as const,
+                stat: "0 solution",
+                desc: "Le partage entre inconnus, sans filet : trop risqué pour durer.",
+                sub: "Kabola sécurise l’argent, les profils et les paiements locaux.",
+              },
+            ].map((card, index, cards) => {
+              const isLast = index === cards.length - 1;
+              return (
+                <StaggerItem
+                  key={card.id}
+                  className={cn(
+                    "h-full w-[min(22rem,calc(100vw-5rem))] shrink-0 snap-start md:w-auto md:max-w-none md:snap-normal md:shrink",
+                    isLast ? "snap-normal" : "snap-always",
+                  )}
+                >
+                  <ProblemCard
+                    icon={card.icon}
+                    headerTone={card.headerTone}
+                    stat={card.stat}
+                    desc={card.desc}
+                    sub={card.sub}
+                  />
+                </StaggerItem>
+              );
+            })}
+          </StaggerContainer>
+        </div>
       </div>
     </section>
   );

@@ -37,7 +37,8 @@ export default function BrandMarquee() {
     <section className="overflow-hidden bg-transparent py-5 sm:py-8">
       <div className="mx-auto max-w-6xl px-4 sm:px-5">
         <p className="mb-4 text-center text-[0.65rem] font-bold uppercase tracking-widest text-text-muted sm:mb-6 sm:text-xs">
-          Les abonnements les plus proposés et rejoints
+          <span className="sm:hidden">Top abonnements partagés</span>
+          <span className="hidden sm:inline">Les abonnements les plus proposés et rejoints</span>
         </p>
       </div>
       <div className="relative overflow-hidden">

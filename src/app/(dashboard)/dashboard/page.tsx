@@ -31,18 +31,22 @@ function DashboardStats({ activeShareCount }: { activeShareCount: number }) {
         icon={<Icons.users size={20} />}
         color="primary"
       />
-      <StatCard
-        label="Score de confiance"
-        value="98"
-        icon={<Icons.shield size={20} />}
-        color="warning"
-      />
-      <StatCard
-        label="Total économisé"
-        value={formatPrice(150000)}
-        icon={<Icons.trendingUp size={20} />}
-        color="success"
-      />
+      <div className="hidden lg:block">
+        <StatCard
+          label="Score de confiance"
+          value="98"
+          icon={<Icons.shield size={20} />}
+          color="warning"
+        />
+      </div>
+      <div className="hidden lg:block">
+        <StatCard
+          label="Total économisé"
+          value={formatPrice(150000)}
+          icon={<Icons.trendingUp size={20} />}
+          color="success"
+        />
+      </div>
     </div>
   );
 }
@@ -53,9 +57,14 @@ function DashboardActionCards() {
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         <Link href={ROUTES.CREATE_SUBSCRIPTION} className="group block">
           <div className="relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-2xl bg-linear-to-b from-amber-200 via-orange-400 to-orange-600 p-5 shadow-lg ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-xl">
-            <h2 className="text-xl font-bold leading-tight text-neutral-900">
-              Proposer{" "}
-              <span className="text-white drop-shadow-sm">un abonnement</span>
+            <h2 className="text-xl font-bold leading-tight text-neutral-900 md:whitespace-normal">
+              <span className="whitespace-nowrap md:whitespace-normal">
+                Proposer{" "}
+                <span className="text-white drop-shadow-sm">
+                  <span className="md:hidden">un abo</span>
+                  <span className="hidden md:inline">un abonnement</span>
+                </span>
+              </span>
             </h2>
             <div className="relative mt-2 min-h-[120px] flex-1">
               <Image
@@ -80,9 +89,14 @@ function DashboardActionCards() {
 
         <Link href={ROUTES.SUBSCRIPTIONS_BROWSE} className="group block">
           <div className="relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-2xl bg-linear-to-b from-pink-200 via-fuchsia-500 to-rose-700 p-5 shadow-lg ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:shadow-xl">
-            <h2 className="text-xl font-bold leading-tight text-neutral-900">
-              Rejoindre{" "}
-              <span className="text-white drop-shadow-sm">un abonnement</span>
+            <h2 className="text-xl font-bold leading-tight text-neutral-900 md:whitespace-normal">
+              <span className="whitespace-nowrap md:whitespace-normal">
+                Rejoindre{" "}
+                <span className="text-white drop-shadow-sm">
+                  <span className="md:hidden">un abo</span>
+                  <span className="hidden md:inline">un abonnement</span>
+                </span>
+              </span>
             </h2>
             <div className="relative mt-2 min-h-[120px] flex-1">
               <Image
@@ -111,7 +125,8 @@ function DashboardActionCards() {
             <div className="text-white">
               <p className="text-2xl font-bold tracking-tight">Kabola+</p>
               <p className="mt-1 text-sm text-white/85">
-                Tout Kabola sans frais, et bien plus encore…
+                <span className="md:hidden">Sans frais, et plus encore…</span>
+                <span className="hidden md:inline">Tout Kabola sans frais, et bien plus encore…</span>
               </p>
               <span className="mt-4 inline-flex w-full max-w-xs items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-emerald-950 shadow-md transition group-hover:bg-white/95 md:w-auto">
                 Découvrir Kabola+
@@ -300,20 +315,30 @@ export default async function DashboardPage() {
       <div className="mx-auto max-w-5xl space-y-6 px-4 py-6">
         <div className="surface-hero-dark rounded-2xl p-6 text-white">
           <p className="text-sm text-white/70">Bonjour,</p>
-          <h1 className="text-2xl font-bold">Rejoindre ou proposer un abo</h1>
+          <h1 className="text-xl font-bold leading-tight tracking-tight sm:text-2xl">
+            <span className="whitespace-nowrap sm:whitespace-normal">
+              <span className="sm:hidden">Propose ou rejoins un abo</span>
+              <span className="hidden sm:inline">Rejoindre ou proposer un abo</span>
+            </span>
+          </h1>
           <div className="mt-4 flex items-center gap-2 rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
-            <p className="text-sm text-white/80">Économies ce mois</p>
+            <p className="text-sm text-white/80">
+              <span className="sm:hidden">Économies</span>
+              <span className="hidden sm:inline">Économies ce mois</span>
+            </p>
             <p className="ml-auto text-xl font-bold">{formatPrice(12500)}</p>
           </div>
         </div>
 
         <DashboardActionCards />
-        <PopularPlatformsStrip />
+        <div className="hidden md:block">
+          <PopularPlatformsStrip />
+        </div>
         <DashboardStats activeShareCount={activeShares.length} />
         <TrendingSubscriptions />
         <ActiveShares items={activeShares} />
 
-        <Card className="flex items-center gap-3 border-none bg-dark-brand text-white">
+        <Card className="hidden items-center gap-3 border-none bg-dark-brand text-white md:flex">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
             <Icons.shield size={20} />
           </div>

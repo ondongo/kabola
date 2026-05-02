@@ -84,9 +84,15 @@ export default function ParallaxFeatures() {
                 Payez avec mobile money
               </h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-text-secondary sm:mt-5 sm:text-lg">
-                Pas besoin de carte bancaire. Payez votre part avec Wave, Orange Money
-                ou Free Money — le mobile money du Sénégal, du Congo ou du Gabon.
-                Votre argent est protégé en escrow jusqu&apos;à confirmation.
+                <span className="md:hidden">
+                  Wave, Orange Money ou Free Money. Votre part reste en escrow jusqu&apos;à
+                  confirmation.
+                </span>
+                <span className="hidden md:inline">
+                  Pas besoin de carte bancaire. Payez votre part avec Wave, Orange Money
+                  ou Free Money — le mobile money du Sénégal, du Congo ou du Gabon.
+                  Votre argent est protégé en escrow jusqu&apos;à confirmation.
+                </span>
               </p>
               <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
                 {["Wave", "Orange Money", "Free Money"].map((pm) => (
