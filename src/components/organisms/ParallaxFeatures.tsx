@@ -1,9 +1,8 @@
 "use client";
 
-import { FiShield, FiUsers, FiCheck, FiArrowRight } from "react-icons/fi";
-import { SiNetflix } from "react-icons/si";
 import Link from "next/link";
-import { ROUTES } from "@/constants";
+import { ROUTES, buildLoginHref } from "@/constants";
+import { Icons } from "@/constants/icons.constants";
 import ScrollReveal from "@/components/atoms/ScrollReveal";
 import { cn } from "@/utils/cn";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -18,7 +17,7 @@ function FloatingBadge({ text, className }: { text: string; className?: string }
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
-      <FiCheck size={14} className="text-primary" />
+      <Icons.check size={14} className="text-primary" />
       {text}
     </motion.span>
   );
@@ -79,7 +78,7 @@ export default function ParallaxFeatures() {
           <div className="md:flex md:items-center md:gap-16">
             <ScrollReveal variant="fade-right" className="flex-1">
               <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-primary-light px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
-                <FiShield size={14} /> Paiements
+                <Icons.shield size={14} /> Paiements
               </span>
               <h2 className="text-2xl font-extrabold leading-snug tracking-tight text-text sm:text-3xl md:text-4xl">
                 Payez avec mobile money
@@ -112,7 +111,7 @@ export default function ParallaxFeatures() {
                 >
                   <div className="mb-4 flex items-center gap-3">
                     <div className="h-10 w-10 rounded-xl bg-red-50 flex items-center justify-center glow-ring">
-                      <SiNetflix size={20} style={{ color: "#E50914" }} />
+                      <Icons.siNetflix size={20} style={{ color: "#E50914" }} />
                     </div>
                     <div>
                       <p className="text-sm font-bold text-text">Paiement Netflix</p>
@@ -128,7 +127,7 @@ export default function ParallaxFeatures() {
                     Payer avec Wave
                   </div>
                   <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-primary">
-                    <FiShield size={12} />
+                    <Icons.shield size={12} />
                     <span>Protégé par escrow Kabola</span>
                   </div>
                 </motion.div>
@@ -158,7 +157,7 @@ export default function ParallaxFeatures() {
           <div className="md:flex md:flex-row-reverse md:items-center md:gap-16">
             <ScrollReveal variant="fade-left" className="flex-1">
               <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary ring-1 ring-primary/15 shadow-sm">
-                <FiCheck size={14} /> Confiance
+                <Icons.check size={14} /> Confiance
               </span>
               <h2 className="text-2xl font-extrabold leading-snug tracking-tight text-text sm:text-3xl md:text-4xl">
                 Chaque membre est vérifié
@@ -235,7 +234,7 @@ export default function ParallaxFeatures() {
           <ScrollReveal variant="blur-up">
             <div className="text-center">
               <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm ring-1 ring-black/5">
-                <FiUsers size={14} /> Communauté
+                <Icons.users size={14} /> Communauté
               </span>
               <h2 className="mx-auto max-w-sm text-2xl font-extrabold leading-snug tracking-tight text-text sm:max-w-2xl sm:text-3xl md:max-w-3xl md:text-4xl">
                 Une communauté qui achète et qui propose
@@ -269,12 +268,12 @@ export default function ParallaxFeatures() {
           <ScrollReveal variant="fade-up" delay={0.3}>
             <div className="mt-10 text-center sm:mt-14">
               <Link
-                href={ROUTES.SIGNUP}
+                href={buildLoginHref()}
                 className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl sm:px-8 sm:py-4 sm:text-base"
               >
                 <span className="flex items-center gap-2.5">
                   Créer mon compte
-                  <FiArrowRight size={18} className="transition-transform duration-300 ease-out group-hover:translate-x-1" />
+                  <Icons.arrowRight size={18} className="transition-transform duration-300 ease-out group-hover:translate-x-1" />
                 </span>
               </Link>
             </div>

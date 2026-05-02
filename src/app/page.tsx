@@ -6,7 +6,7 @@ import PopularServices from "@/components/organisms/PopularServices";
 import Footer from "@/components/organisms/Footer";
 import Logo from "@/components/atoms/Logo";
 import Link from "next/link";
-import { ROUTES } from "@/constants";
+import LandingHeaderActions from "@/components/organisms/LandingHeaderActions";
 import SavingsSection from "@/components/organisms/SavingsSection";
 import BrandMarquee from "@/components/organisms/BrandMarquee";
 
@@ -24,20 +24,8 @@ export default function LandingPage() {
             <Link href="#trust" className="shrink-0 text-sm font-medium text-text-secondary transition hover:text-primary">Confiance</Link>
           </nav>
 
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
-            <Link
-              href={ROUTES.LOGIN}
-              className="rounded-full px-2.5 py-2 text-xs font-medium text-text-secondary transition hover:bg-primary-light/50 hover:text-primary sm:px-4 sm:text-sm"
-            >
-              <span className="sm:hidden">Connexion</span>
-              <span className="hidden sm:inline">Se connecter</span>
-            </Link>
-            <Link
-              href={ROUTES.SIGNUP}
-              className="rounded-full bg-primary px-3 py-2 text-xs font-semibold whitespace-nowrap text-white shadow-md shadow-primary/20 transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-lg sm:px-5 sm:text-sm"
-            >
-              S&apos;inscrire
-            </Link>
+          <div className="flex shrink-0 items-center justify-end">
+            <LandingHeaderActions />
           </div>
         </div>
       </header>

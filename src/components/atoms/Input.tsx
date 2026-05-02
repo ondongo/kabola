@@ -6,12 +6,14 @@ import { forwardRef } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  /** Surcharge du style du label (ex. profil « clean ») */
+  labelClassName?: string;
   error?: string;
   icon?: ReactNode;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, icon, className, id, ...props }, ref) => {
+  ({ label, labelClassName, error, icon, className, id, ...props }, ref) => {
     const inputId = id || props.name;
 
     return (
@@ -19,7 +21,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label
             htmlFor={inputId}
-            className="text-sm font-medium text-gray-700"
+            className={cn(
+              "text-sm font-medium text-gray-700",
+              labelClassName,
+            )}
           >
             {label}
           </label>

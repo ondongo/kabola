@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { FiLock, FiFileText, FiSmartphone, FiStar } from "react-icons/fi";
 import type { IconType } from "react-icons";
+import { Icons } from "@/constants/icons.constants";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/atoms/ScrollReveal";
 import { LANDING_IMAGES } from "@/constants/landing-images";
 import { motion } from "framer-motion";
@@ -108,10 +108,10 @@ export default function FeaturesSection() {
 
         <StaggerContainer className="mt-12 grid gap-3 sm:mt-16 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4" stagger={0.06}>
           {[
-            { icon: FiLock, title: "Escrow sécurisé", desc: "Fonds bloqués tant que l'accès n'est pas confirmé" },
-            { icon: FiFileText, title: "Factures vérifiées", desc: "Les hôtes qui proposent un abonnement sont vérifiés par notre système" },
-            { icon: FiSmartphone, title: "Paiements locaux", desc: "Moyens adaptés au Sénégal, au Congo et au Gabon" },
-            { icon: FiStar, title: "Score de confiance", desc: "Système de notation transparent entre membres" },
+            { icon: Icons.lock, title: "Escrow sécurisé", desc: "Fonds bloqués tant que l'accès n'est pas confirmé" },
+            { icon: Icons.fileText, title: "Factures vérifiées", desc: "Les hôtes qui proposent un abonnement sont vérifiés par notre système" },
+            { icon: Icons.smartphone, title: "Paiements locaux", desc: "Moyens adaptés au Sénégal, au Congo et au Gabon" },
+            { icon: Icons.star, title: "Score de confiance", desc: "Système de notation transparent entre membres" },
           ].map((vp) => (
             <StaggerItem key={vp.title}>
               <ValueProp icon={vp.icon} title={vp.title} desc={vp.desc} />

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "@/components/atoms/Logo";
-import { APP_NAME, ROUTES } from "@/constants";
+import { APP_NAME, ROUTES, buildLoginHref } from "@/constants";
 
 export default function Footer() {
   return (
@@ -30,10 +30,10 @@ export default function Footer() {
               Produit
             </h4>
             <nav className="flex flex-col gap-3 text-sm">
-              <Link href={ROUTES.EXPLORE} className="text-text-secondary transition hover:text-primary">Explorer</Link>
+              <Link href={ROUTES.SUBSCRIPTIONS_BROWSE} className="text-text-secondary transition hover:text-primary">Explorer</Link>
               <Link href="#how" className="text-text-secondary transition hover:text-primary">Comment ça marche</Link>
               <Link href="#" className="text-text-secondary transition hover:text-primary">Tarifs</Link>
-              <Link href={ROUTES.SIGNUP} className="text-text-secondary transition hover:text-primary">Créer un compte</Link>
+              <Link href={buildLoginHref()} className="text-text-secondary transition hover:text-primary">Commencer</Link>
             </nav>
           </div>
 

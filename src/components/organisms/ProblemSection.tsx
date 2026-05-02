@@ -1,7 +1,7 @@
 "use client";
 
-import { FiTrendingDown, FiAlertCircle, FiDollarSign } from "react-icons/fi";
 import type { IconType } from "react-icons";
+import { Icons } from "@/constants/icons.constants";
 import { StaggerContainer, StaggerItem } from "@/components/atoms/ScrollReveal";
 import { motion } from "framer-motion";
 
@@ -68,7 +68,7 @@ export default function ProblemSection() {
           {[
             {
               id: "spend",
-              icon: FiTrendingDown,
+              icon: Icons.trendingDown,
               headerTone: "mint" as const,
               stat: "28 000 FCFA",
               desc: "Budget moyen mensuel pour vos abos au Sénégal, Congo et Gabon.",
@@ -76,7 +76,7 @@ export default function ProblemSection() {
             },
             {
               id: "unused",
-              icon: FiAlertCircle,
+              icon: Icons.alertCircle,
               headerTone: "beige" as const,
               stat: "72%",
               desc: "Beaucoup paient un maxi-forfait pour une utilisation moyenne.",
@@ -84,7 +84,7 @@ export default function ProblemSection() {
             },
             {
               id: "trust",
-              icon: FiDollarSign,
+              icon: Icons.dollarSign,
               headerTone: "mint" as const,
               stat: "0 solution",
               desc: "Le partage entre inconnus, sans filet : trop risqué pour durer.",

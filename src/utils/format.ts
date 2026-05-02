@@ -1,8 +1,14 @@
-import { CURRENCY_SYMBOL, TRUST_LEVELS } from "@/constants";
+import { CURRENCY, TRUST_LEVELS } from "@/constants";
 
-export function formatPrice(amount: number, currency?: string): string {
-  const symbol = currency || CURRENCY_SYMBOL;
-  return `${amount.toLocaleString("fr-FR")} ${symbol}`;
+/** Montant en franc CFA (XOF), sans décimales — affichage cohérent partout dans l’app. */
+export function formatPrice(amount: number): string {
+  const n = Number.isFinite(amount) ? amount : 0;
+  return new Intl.NumberFormat("fr-SN", {
+    style: "currency",
+    currency: CURRENCY,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(n);
 }
 
 export function formatDate(date: Date | string): string {

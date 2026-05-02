@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FiLock, FiShield, FiXCircle } from "react-icons/fi";
-import { ROUTES } from "@/constants";
+import { ROUTES, buildLoginHref } from "@/constants";
+import { Icons } from "@/constants/icons.constants";
 import type { IconType } from "react-icons";
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/atoms/ScrollReveal";
 import { motion } from "framer-motion";
@@ -104,12 +104,12 @@ export default function TrustSection() {
                 par escrow. Chaque membre est vérifié.
               </p>
               <div className="mt-10 grid gap-6 sm:grid-cols-3">
-                <TrustBadge icon={FiLock} title="Chiffrement SSL" desc="Données 100% sécurisées" />
-                <TrustBadge icon={FiShield} title="Protection fraude" desc="Vérification manuelle + automatique" />
-                <TrustBadge icon={FiXCircle} title="Annulation libre" desc="Sans engagement, sans frais" />
+                <TrustBadge icon={Icons.lock} title="Chiffrement SSL" desc="Données 100% sécurisées" />
+                <TrustBadge icon={Icons.shield} title="Protection fraude" desc="Vérification manuelle + automatique" />
+                <TrustBadge icon={Icons.xCircle} title="Annulation libre" desc="Sans engagement, sans frais" />
               </div>
               <Link
-                href={ROUTES.SIGNUP}
+                href={buildLoginHref()}
                 className="group mt-10 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-bold text-white shadow-lg shadow-primary/25 transition-[transform,box-shadow,background-color] duration-300 ease-out hover:bg-primary-hover hover:shadow-xl hover:-translate-y-0.5"
               >
                 <span className="flex items-center gap-2">

@@ -68,7 +68,7 @@ export default function PopularServices() {
               </h2>
             </div>
             <Link
-              href={ROUTES.EXPLORE}
+              href={ROUTES.SUBSCRIPTIONS_BROWSE}
               className="group mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:border-white/40 md:mt-0"
             >
               Voir tous les abonnements
@@ -85,7 +85,7 @@ export default function PopularServices() {
         >
           {SERVICES.map((s, index) => (
             <StaggerItem key={s.name} className="h-full min-h-0">
-              <Link href={ROUTES.EXPLORE} className="block h-full">
+              <Link href={ROUTES.SUBSCRIPTIONS_BROWSE} className="block h-full">
                 <motion.div
                   className={`${s.gradient} group flex h-full min-h-70 flex-col items-center rounded-2xl px-3 py-5 text-white sm:min-h-68 sm:px-5 sm:py-7 md:min-h-72 md:px-6 md:py-8`}
                   whileHover={{ y: -4, scale: 1.02, boxShadow: "0 20px 40px -12px rgb(0 0 0 / 0.35)" }}

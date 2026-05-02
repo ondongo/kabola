@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ROUTES } from "@/constants";
+import { ROUTES, buildLoginHref } from "@/constants";
 import AnimatedCounter from "@/components/atoms/AnimatedCounter";
-import { SiNetflix, SiSpotify, SiApplemusic, SiCanva } from "react-icons/si";
-import { FiPlay, FiTv } from "react-icons/fi";
+import { Icons } from "@/constants/icons.constants";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -64,42 +63,42 @@ export default function HeroSection() {
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <SiNetflix size={24} style={{ color: "#E50914" }} />
+          <Icons.siNetflix size={24} style={{ color: "#E50914" }} />
         </motion.div>
         <motion.div
           className="absolute top-48 right-[10%] flex h-12 w-12 items-center justify-center rounded-2xl bg-white/90 shadow-lg ring-1 ring-black/5 backdrop-blur-sm"
           animate={{ y: [0, -9, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
-          <SiSpotify size={24} style={{ color: "#1DB954" }} />
+          <Icons.siSpotify size={24} style={{ color: "#1DB954" }} />
         </motion.div>
         <motion.div
           className="absolute bottom-32 left-[12%] flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 shadow-lg ring-1 ring-black/5 backdrop-blur-sm"
           animate={{ y: [0, -7, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
-          <SiApplemusic size={20} style={{ color: "#FC3C44" }} />
+          <Icons.siApplemusic size={20} style={{ color: "#FC3C44" }} />
         </motion.div>
         <motion.div
           className="absolute bottom-36 right-[8%] flex h-10 w-10 items-center justify-center rounded-xl bg-white/90 shadow-lg ring-1 ring-black/5 backdrop-blur-sm"
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         >
-          <FiPlay size={20} style={{ color: "#0063E5" }} />
+          <Icons.play size={20} style={{ color: "#0063E5" }} />
         </motion.div>
         <motion.div
           className="absolute top-64 left-[18%] flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 shadow-lg ring-1 ring-black/5 backdrop-blur-sm"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 3 }}
         >
-          <SiCanva size={18} style={{ color: "#00C4CC" }} />
+          <Icons.siCanva size={18} style={{ color: "#00C4CC" }} />
         </motion.div>
         <motion.div
           className="absolute top-56 right-[16%] flex h-9 w-9 items-center justify-center rounded-xl bg-white/90 shadow-lg ring-1 ring-black/5 backdrop-blur-sm"
           animate={{ y: [0, -7, 0] }}
           transition={{ duration: 6.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
         >
-          <FiTv size={18} style={{ color: "#1a1a2e" }} />
+          <Icons.tv size={18} style={{ color: "#1a1a2e" }} />
         </motion.div>
       </div>
 
@@ -159,7 +158,7 @@ export default function HeroSection() {
             transition={{ duration: 0.65, delay: 0.36, ease: easeFluid }}
           >
             <Link
-              href={ROUTES.SIGNUP}
+              href={buildLoginHref()}
               className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-xl sm:px-8 sm:py-4 sm:text-base"
             >
               <span className="flex items-center gap-2.5">
@@ -168,7 +167,7 @@ export default function HeroSection() {
               </span>
             </Link>
             <Link
-              href={ROUTES.EXPLORE}
+              href={ROUTES.SUBSCRIPTIONS_BROWSE}
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 px-6 py-3 text-sm font-semibold text-text transition-all hover:border-primary hover:bg-primary-light/50 hover:text-primary sm:px-7 sm:py-3.5 sm:text-base"
             >
               Voir les abonnements

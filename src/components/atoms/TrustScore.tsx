@@ -1,6 +1,6 @@
 import { cn } from "@/utils/cn";
 import { getTrustLevel } from "@/utils/format";
-import { FiShield } from "react-icons/fi";
+import { Icons } from "@/constants/icons.constants";
 
 interface TrustScoreProps {
   score: number;
@@ -35,7 +35,7 @@ export default function TrustScore({
         level.color,
       )}
     >
-      <FiShield size={iconSizes[size]} />
+      <Icons.shield size={iconSizes[size]} />
       <span>{score}</span>
       {showLabel && <span className="text-text-secondary">· {level.label}</span>}
     </span>

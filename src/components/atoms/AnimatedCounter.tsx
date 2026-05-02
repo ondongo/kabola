@@ -37,7 +37,9 @@ export default function AnimatedCounter({
 
   useEffect(() => {
     if (!animated) {
-      setDisplay(formatCounterValue(target, decimals, prefix, suffix));
+      queueMicrotask(() => {
+        setDisplay(formatCounterValue(target, decimals, prefix, suffix));
+      });
       return;
     }
     if (!isInView) return;

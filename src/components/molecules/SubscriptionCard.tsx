@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FiUsers } from "react-icons/fi";
+import { Icons } from "@/constants/icons.constants";
 import Badge from "@/components/atoms/Badge";
 import Card from "@/components/atoms/Card";
 import TrustScore from "@/components/atoms/TrustScore";
@@ -51,7 +51,7 @@ export default function SubscriptionCard({
             )}
           </div>
           <div className="flex items-center gap-1.5 text-sm">
-            <FiUsers className="text-text-muted" size={14} />
+            <Icons.users className="text-text-muted" size={14} />
             <span className="text-text-secondary">
               {available} place{available > 1 ? "s" : ""} dispo
             </span>
